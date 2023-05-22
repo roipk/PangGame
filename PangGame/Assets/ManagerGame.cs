@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class ManagerGame :  MonoBehaviour
 {
     public static ManagerGame instance;
+    public bool singlePlayer = false;
     [SerializeField] private NetworkManager _networkManager;
     [SerializeField] private float timer = 10;
     [SerializeField] private int balls = 0;
@@ -37,7 +38,8 @@ public class ManagerGame :  MonoBehaviour
     { 
         GameObject player = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(uid).gameObject;
         Players.Add(player);
-        player.SetActive(false);
+        
+        // player.SetActive(false);
     }
     private void removePlayer(ulong uid)
     {

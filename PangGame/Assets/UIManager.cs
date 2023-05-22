@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public void StartHost() { NetworkManager. Singleton. StartHost(); }
+    public void StartSinglePlayer()
+    {
+        NetworkManager.Singleton.StartHost();
+        ManagerGame.instance.singlePlayer = true;
+    }
+    public void StartHost() { NetworkManager.Singleton.StartHost(); }
     public void StartClient() { NetworkManager.Singleton.StartClient(); }
 
     public void Disconnect()

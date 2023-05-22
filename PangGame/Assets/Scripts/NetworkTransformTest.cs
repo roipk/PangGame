@@ -1,21 +1,33 @@
 using System;
+using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NetworkTransformTest : NetworkBehaviour
 {
     [SerializeField] private Transform me;
+    [SerializeField] private float _speed;
+
     private void Start()
     {
         me = GetComponent<Transform>();
-        me.name = IsOwner? "Owner": NetworkObjectId.ToString();
+        me.name = IsOwner ? "Owner" : NetworkObjectId.ToString();
         Debug.Log(me.name);
+        // transform.GetComponent<Material>().color =  new Color(
+        //     (float)Random.Range(0, 255), 
+        //     (float)Random.Range(0, 255), 
+        //     (float)Random.Range(0, 255)
+        // );
+       
     }
 
+  
+
     [ServerRpc(RequireOwnership = false)]
-    void PongServerRpc(Vector3 someValue, ulong sourceNetworkObjectId)
+    void UpdatePositionServerRpc(Vector3 someValue, ulong sourceNetworkObjectId)
     {
-        if(!IsOwner)
+        if (!IsOwner)
         {
             foreach (ulong uid in NetworkManager.Singleton.ConnectedClientsIds)
             {
@@ -34,31 +46,34 @@ public class NetworkTransformTest : NetworkBehaviour
 
     void Update()
     {
-        if(IsOwner)
+        if (IsOwner)
+        {
+            if (Input.GetKey(KeyCode.W))
             {
-                if(Input.GetKeyUp(KeyCode.W))
-                {
-                    transform.position += Vector3.up;
-                    PongServerRpc(transform.position,NetworkObjectId); // Server -> Client
-                }
-                if(Input.GetKeyUp(KeyCode.S))
-                {
-                    transform.position += Vector3.down;
-                    PongServerRpc(transform.position,NetworkObjectId); // Server -> Client
-                }
-                if(Input.GetKeyUp(KeyCode.A))
-                {
-                    transform.position += Vector3.left;
-                    PongServerRpc(transform.position,NetworkObjectId); // Server -> Client
-                }
-                if(Input.GetKeyUp(KeyCode.D))
-                {
-                    transform.position += Vector3.right;
-                    PongServerRpc(transform.position,NetworkObjectId); // Server -> Client
-                }
-                
+                transform.position += Vector3.up * Time.deltaTime * _speed;
+                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
             }
-         
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.position += Vector3.down * Time.deltaTime * _speed;
+                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position += Vector3.left * Time.deltaTime * _speed;
+                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += Vector3.right * Time.deltaTime * _speed;
+                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
+            }
+
+        }
+
 
     }
 }
