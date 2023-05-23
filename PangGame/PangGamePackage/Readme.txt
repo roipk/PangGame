@@ -36,3 +36,10 @@ To run the Pang Game project, follow these steps:
 ## Credits
 
 Pang Game was developed by Roi Madmon for Communix company
+
+## Remarks
+
+I had a positive experience working on the exercise. Initially, I attempted to connect to a server for a multiplayer game. 
+However, I realized that it was taking more time than I had anticipated. 
+In order to make the most of my time, I decided to shift my focus towards completing the single-player exercise instead. 
+This allowed me to efficiently manage my time and ensure that I successfully finished a part of the project.
