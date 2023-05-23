@@ -10,13 +10,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] private Transform _shootPatent;
     private bool _move;
     [SerializeField] private Vector3 _direction;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+  
     void Update()
     {
         if (_move)

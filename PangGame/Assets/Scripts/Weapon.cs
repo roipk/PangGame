@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -10,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private List<string> _tagDestroy;
     private void OnCollisionEnter2D(Collision2D col)
     {
+        // Checks if the collided object's tag is in the list of tags to destroy
         foreach (var tag in _tagDestroy)
         {
             if (col.transform.tag == tag)
@@ -21,6 +20,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        // Moves the weapon upwards based on the speed and time
         transform.position += Vector3.up * Time.deltaTime * speed;
     }
 }
