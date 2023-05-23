@@ -14,11 +14,11 @@ public class NetworkTransformTest : NetworkBehaviour
         me = GetComponent<Transform>();
         me.name = IsOwner ? "Owner" : NetworkObjectId.ToString();
         Debug.Log(me.name);
-        // transform.GetComponent<Material>().color =  new Color(
-        //     (float)Random.Range(0, 255), 
-        //     (float)Random.Range(0, 255), 
-        //     (float)Random.Range(0, 255)
-        // );
+        transform.GetComponent<Material>().color =  new Color(
+            (float)Random.Range(0, 255), 
+            (float)Random.Range(0, 255), 
+            (float)Random.Range(0, 255)
+        );
        
     }
 
@@ -46,34 +46,6 @@ public class NetworkTransformTest : NetworkBehaviour
 
     void Update()
     {
-        if (IsOwner)
-        {
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.position += Vector3.up * Time.deltaTime * _speed;
-                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.position += Vector3.down * Time.deltaTime * _speed;
-                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
-            }
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.position += Vector3.left * Time.deltaTime * _speed;
-                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
-            }
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.position += Vector3.right * Time.deltaTime * _speed;
-                UpdatePositionServerRpc(transform.position, NetworkObjectId); // Server -> Client
-            }
-
-        }
-
-
+        
     }
 }

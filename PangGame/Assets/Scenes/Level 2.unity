@@ -394,6 +394,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3804fa228b54214baa44ef40a89936f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &74898600
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 196882930}
+    m_Modifications:
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284122, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284122, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284127, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_Name
+      value: LargBall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816485830246284127, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+--- !u!4 &74898601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
+  m_PrefabInstance: {fileID: 74898600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76045155
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +766,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 764744277}
+  - {fileID: 74898601}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2051,7 +2126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.04
       objectReference: {fileID: 0}
     - target: {fileID: 3816485830246284120, guid: 3893fd6027427864796c3f25d63919d2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3308,7 +3383,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 2
+          m_StringArgument: Level 3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1405065768
@@ -4747,7 +4822,7 @@ GameObject:
   - component: {fileID: 1905347485}
   - component: {fileID: 1905347484}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: ScoreTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

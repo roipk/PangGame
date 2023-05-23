@@ -9,6 +9,9 @@ TagManager:
   - BallsParent
   - Rwall
   - Lwall
+  - Shoot
+  - Restart
+  - Top
   layers:
   - Default
   - TransparentFX

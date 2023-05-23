@@ -136,5 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de785bca4c85704aaf949f8f58ea8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ballType: 5
+  _ballType: 8
   childs: []

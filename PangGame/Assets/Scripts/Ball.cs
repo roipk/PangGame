@@ -24,31 +24,24 @@ public class Ball : MonoBehaviour
         set { m_forceMovement = value; }
     }
     
-    // Start is called before the first frame update
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = m_forceMovement;
         _ballsize = (int)_ballType;
-        // Invoke("CreateChilds",4f);
         GameObject[] ignore = GameObject.FindGameObjectsWithTag("Ball");
         foreach (var collision in ignore)
         {
             Physics2D.IgnoreCollision( collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>()); 
         }
-        Invoke("Init",0.1f);
+        ManagerLevel.instance.AddBall();
     }
 
   
-
-    void Init()
-    {
-        ManagerGame.instance.AddBall();
-    }
-
+    
     private void OnDisable()
     {
-        ManagerGame.instance.RemoveBall();
+         ManagerLevel.instance.RemoveBall();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -59,6 +52,12 @@ public class Ball : MonoBehaviour
         
         
         else if (collision.transform.CompareTag("Player"))
+        {
+            ManagerLevel.instance.gameOver = true;
+            collision.gameObject.SetActive(false);
+        }
+        
+        else if (collision.transform.CompareTag("Shoot"))
             CreateChilds();
         
         else if (collision.transform.CompareTag("Rwall"))
@@ -73,7 +72,6 @@ public class Ball : MonoBehaviour
        bool direction = true;
        foreach (var child in childs)
        {   
-           Debug.Log("direction "+ direction + "parent: "+transform.parent.name);
            StartCoroutine(CreateChild(child, direction,transform));
            direction = !direction;
        }
@@ -90,9 +88,7 @@ public class Ball : MonoBehaviour
    
     IEnumerator CreateChild(GameObject child,bool direction,Transform t)
     {
-        // Debug.Log("in chid3");
         yield return new WaitForSeconds(0.01f);
-        // Debug.Log("in chid4");
         GameObject c = Instantiate(child,t.position,t.rotation,transform.parent);
         Rigidbody2D newBall = c.GetComponent<Rigidbody2D>();
         if (newBall)

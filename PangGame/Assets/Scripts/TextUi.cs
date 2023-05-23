@@ -7,16 +7,17 @@ using UnityEngine.UI;
 public class TextUi : MonoBehaviour
 {
     private Text ui;
-    
 
-    private void OnEnable()
+    private void Start()
     {
         ui = GetComponent<Text>();
     }
+    
 
     public void SetTimeFloat(float time)
     {
-        ui.text = $"{Mathf.Floor(time / 60).ToString("00")}:{Mathf.Floor(time % 60).ToString("00")}";
+        if(ui)
+            ui.text = $"{Mathf.Floor(time / 60).ToString("00")}:{Mathf.Floor(time % 60).ToString("00")}";
     }
    
 }
